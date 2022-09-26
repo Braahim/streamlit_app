@@ -1,7 +1,11 @@
 
 import streamlit 
-streamlit.title('love you all')
-streamlit.header('Breakfast Menu')
-streamlit.text('Omega 3 & Blueberry Oatmeal')
-streamlit.text('Kale, Spinach & Rocket Smoothie')
-streamlit.text('Hard-Boiled Free-Range Egg')
+streamlit.title('Hello')
+streamlit.header('First streamlit APP !')
+
+
+
+import pandas
+
+my_fruit_list = pandas.read_csv("fruit_macros.txt")
+streamlit.dataframe(my_fruit_list)
