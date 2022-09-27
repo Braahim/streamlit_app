@@ -19,7 +19,7 @@ streamlit.dataframe(fruits_to_show)
 
 # API calls : 
 
-def get_fruityvice_data('fruit_choice'):
+def get_fruityvice_data(fruit_choice):
   fruityvice_response = requests.get("https://fruityvice.com/api/fruit/"+fruit_choice)
 
     # normalize json response 
