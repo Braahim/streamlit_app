@@ -1,5 +1,6 @@
 import streamlit
 import requests
+import pandas
 
 
 streamlit.header('Breakfast Menu')
