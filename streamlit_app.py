@@ -45,7 +45,8 @@ except URLError as e:
 import snowflake.connector
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
-my_cur = my_cnx.cursor()
+if 'my_cnx' not in streamlit.session_state:
+  my_cur = st.session_state.my_cnx.cursor()
 my_cur.execute("use warehouse pc_rivery_wh")
 my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchall()
@@ -57,7 +58,7 @@ streamlit.dataframe(my_data_row)
 
 
 def insert_row_snowflake(new_fruit):
-  with my_cnx.cursor() as my_cur:
+  with st.session_state.my_cnx.cursor() as my_cur:
     #query = """ insert into fruit_load_list values %s """
     my_cur.execute("use warehouse pc_rivery_wh")
     my_cur.execute("insert into fruit_load_list values ( %s );", new_fruit)
