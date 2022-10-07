@@ -42,7 +42,7 @@ except URLError as e:
 
 
 
-import snowflake.connector
+import snowflake.connector as st
 
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 if 'my_cnx' not in streamlit.session_state:
