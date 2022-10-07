@@ -45,7 +45,7 @@ except URLError as e:
 import snowflake.connector 
 
 my_cnx = snowflake.connector.connect(**st.secrets["snowflake"])
-if 'my_cnx' not in streamlit.session_state:
+if 'my_cnx' not in st.session_state:
   my_cur = st.session_state.my_cnx.cursor()
 my_cur.execute("use warehouse pc_rivery_wh")
 my_cur.execute("SELECT * from fruit_load_list")
